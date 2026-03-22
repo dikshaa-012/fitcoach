@@ -2,7 +2,7 @@
 
 An AI-powered fitness tracking web app. Log workouts, track streaks and stats, get personalized AI motivational messages, and chat with a fitness AI assistant.
 
-🔗 **[Live Demo →](https://fitcoach-ai.vercel.app)**
+🔗 **[Live Demo →](https://fitcoach-lake.vercel.app)**
 
 ---
 
@@ -24,7 +24,7 @@ An AI-powered fitness tracking web app. Log workouts, track streaks and stats, g
 | Framework | Next.js 14 (App Router) |
 | Styling | Tailwind CSS |
 | Database | Supabase (PostgreSQL) |
-| AI / LLM | Anthropic Claude (Haiku) |
+| AI / LLM | Google Gemini 2.5 Flash |
 | Deployment | Vercel |
 
 ---
@@ -32,10 +32,9 @@ An AI-powered fitness tracking web app. Log workouts, track streaks and stats, g
 ## Local Setup
 
 ### 1. Clone the repo
-
 ```bash
-git clone https://github.com/YOUR_USERNAME/fitcoach-ai.git
-cd fitcoach-ai
+git clone https://github.com/dikshaa-012/fitcoach.git
+cd fitcoach
 npm install
 ```
 
@@ -47,23 +46,17 @@ npm install
 
 ### 3. Set up environment variables
 
-```bash
-cp .env.example .env.local
-```
-
-Fill in `.env.local`:
-
+Copy `.env.example` to `.env.local` and fill in your keys:
 ```env
 NEXT_PUBLIC_SUPABASE_URL=https://your-project.supabase.co
 NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
 SUPABASE_SERVICE_ROLE_KEY=your-service-role-key
-ANTHROPIC_API_KEY=your-anthropic-api-key
+GEMINI_API_KEY=your-gemini-api-key
 ```
 
-Get your Anthropic API key at [console.anthropic.com](https://console.anthropic.com).
+Get a free Gemini API key at [aistudio.google.com](https://aistudio.google.com).
 
 ### 4. Run locally
-
 ```bash
 npm run dev
 ```
@@ -85,7 +78,7 @@ Open [http://localhost:3000](http://localhost:3000)
 
 **Single-user, no auth** — The assignment didn't specify multi-user. Adding Supabase Auth would be straightforward but adds setup complexity. RLS policies are open (`using (true)`) for simplicity.
 
-**Claude Haiku for AI calls** — Fast and cost-effective for motivational messages and chat. Sonnet would give richer responses at higher cost — easy to swap in `/api/motivation/route.ts` and `/api/chat/route.ts`.
+**Gemini 2.5 Flash for AI calls** — Free tier available via Google AI Studio, fast and capable for motivational messages and chat. Model can be swapped in `/api/motivation/route.ts` and `/api/chat/route.ts`.
 
 **Stats computed client-side** — `computeStats()` runs in the browser on the fetched workout array. This keeps the API simple (just CRUD) and avoids a dedicated stats endpoint. For large datasets, moving this to a DB query would be more efficient.
 
