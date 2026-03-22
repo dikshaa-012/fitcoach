@@ -66,7 +66,7 @@ export default function StatsPanel({ stats, loading }: Props) {
                     ? 'text-4xl text-orange-400'
                     : 'text-4xl text-white'
                 }`}
-                style={tile.highlight && tile.value >= 3 ? { textShadow: '0 0 20px rgba(249,115,22,0.5)' } : {}}
+                style={tile.highlight && Number(tile.value) >= 3 ? { textShadow: '0 0 20px rgba(249,115,22,0.5)' } : {}}
               >
                 {tile.value}
               </span>
