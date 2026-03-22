@@ -63,7 +63,7 @@ export function computeStats(workouts: Workout[]): Stats {
   }
 
   // Last workout date
-  const sortedDates = [...workoutDays].sort().reverse()
+  const sortedDates = Array.from(workoutDays).sort().reverse()
   const lastWorkoutDate = sortedDates[0] || null
 
   // Gap days since last workout
